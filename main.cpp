@@ -66,6 +66,7 @@ private:
                 row_contains[row].set(digit_idx);
                 col_contains[col].set(digit_idx);
                 cell_contains[cell].set(digit_idx);
+                
                 if (solve(board, row, col, row_contains, col_contains, cell_contains)) { return true; }
 
                 row_contains[row].reset(digit_idx);
@@ -145,11 +146,12 @@ int main() {
     soln.solveSudoku(board);
     if (board==expected) {
         std::cout << "\n\n\t\t[OPERATION SUCCESSFUL]";
-        
-    } else std::cout << "\n\nERROR:\nThe expected board and the solution do not match.";
+    } 
+    else std::cout << "\n\nERROR:\nThe expected board and the solution do not match.";
     
     std::cout << "\n\n\nFinal Solution:\n\n";
     print_board(board);
     std::cout << "\n";
+    
     return 0;
 }
